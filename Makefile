@@ -35,7 +35,7 @@ install-deps:
 build:
 	@echo "Building $(BINARY_NAME) for $(GOOS)/$(GOARCH)..."
 	@mkdir -p $(BUILD_DIR)
-	@cd $(CMD_PATH) && go build -o ../../$(BINARY_PATH) -ldflags="-X main.Version=$(VERSION)" .
+	@cd $(CMD_PATH) && go build -o ../../$(BINARY_PATH) -ldflags="-X github.com/cubetiqlabs/gar/pkg/version.Version=$(VERSION)" .
 	@echo "Build complete: $(BINARY_PATH)"
 
 # Build for all platforms
@@ -45,18 +45,18 @@ build-all: build-linux build-darwin build-windows
 build-linux:
 	@echo "Building for Linux..."
 	@mkdir -p $(BUILD_DIR)
-	@GOOS=linux GOARCH=amd64 go build -o $(BUILD_DIR)/$(BINARY_NAME)-linux-amd64 -ldflags="-X main.Version=$(VERSION)" $(CMD_PATH)
+	@GOOS=linux GOARCH=amd64 go build -o $(BUILD_DIR)/$(BINARY_NAME)-linux-amd64 -ldflags="-X github.com/cubetiqlabs/gar/pkg/version.Version=$(VERSION)" $(CMD_PATH)
 
 build-darwin:
 	@echo "Building for macOS..."
 	@mkdir -p $(BUILD_DIR)
-	@GOOS=darwin GOARCH=amd64 go build -o $(BUILD_DIR)/$(BINARY_NAME)-darwin-amd64 -ldflags="-X main.Version=$(VERSION)" $(CMD_PATH)
-	@GOOS=darwin GOARCH=arm64 go build -o $(BUILD_DIR)/$(BINARY_NAME)-darwin-arm64 -ldflags="-X main.Version=$(VERSION)" $(CMD_PATH)
+	@GOOS=darwin GOARCH=amd64 go build -o $(BUILD_DIR)/$(BINARY_NAME)-darwin-amd64 -ldflags="-X github.com/cubetiqlabs/gar/pkg/version.Version=$(VERSION)" $(CMD_PATH)
+	@GOOS=darwin GOARCH=arm64 go build -o $(BUILD_DIR)/$(BINARY_NAME)-darwin-arm64 -ldflags="-X github.com/cubetiqlabs/gar/pkg/version.Version=$(VERSION)" $(CMD_PATH)
 
 build-windows:
 	@echo "Building for Windows..."
 	@mkdir -p $(BUILD_DIR)
-	@GOOS=windows GOARCH=amd64 go build -o $(BUILD_DIR)/$(BINARY_NAME)-windows-amd64.exe -ldflags="-X main.Version=$(VERSION)" $(CMD_PATH)
+	@GOOS=windows GOARCH=amd64 go build -o $(BUILD_DIR)/$(BINARY_NAME)-windows-amd64.exe -ldflags="-X github.com/cubetiqlabs/gar/pkg/version.Version=$(VERSION)" $(CMD_PATH)
 
 # Run the application
 run: build

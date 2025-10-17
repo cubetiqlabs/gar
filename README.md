@@ -2,7 +2,7 @@
 
 <div align="center">
 
-![GoArchive Logo](https://img.shields.io/badge/gar-v1.0.1-blue.svg)
+![GoArchive Logo](https://img.shields.io/badge/gar-v1.0.0-blue.svg)
 ![Go Version](https://img.shields.io/badge/Go-1.21+-00ADD8.svg)
 ![License](https://img.shields.io/badge/license-MIT-green.svg)
 ![Platform](https://img.shields.io/badge/platform-Windows%20%7C%20Linux%20%7C%20macOS-lightgrey.svg)

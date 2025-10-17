@@ -33,7 +33,7 @@ This error indicates a path validation issue. Try these steps:
 
 **Root Cause:** May occur when extracting to current directory or if there are permission issues.
 
-**Status:** Fixed in v1.0.1 - Always extract to a named directory for best results.
+**Status:** Fixed in v1.0.0 - Always extract to a named directory for best results.
 
 ---
 
@@ -401,7 +401,7 @@ When reporting problems, include:
 
 3. **System info:**
    - OS: macOS 13.4 / Ubuntu 22.04 / Windows 11
-   - GoArchive version: 1.0.1
+   - GoArchive version: 1.0.0
    - Go version: 1.21
 
 4. **Steps to reproduce:**

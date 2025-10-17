@@ -164,7 +164,7 @@ gar -cxt archive.zip               # Error: Three action flags
 
 ### Path Traversal Prevention
 
-Original vulnerability fixed in version 1.0.1:
+Original vulnerability fixed in version 1.0.0:
 
 **Before (BROKEN):**
 ```go

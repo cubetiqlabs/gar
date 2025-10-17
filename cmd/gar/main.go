@@ -7,9 +7,8 @@ import (
 	"github.com/cubetiqlabs/gar/internal/archive"
 	"github.com/cubetiqlabs/gar/internal/cli"
 	"github.com/cubetiqlabs/gar/internal/models"
+	"github.com/cubetiqlabs/gar/pkg/version"
 )
-
-const Version = "dev"
 
 func main() {
 	// Create CLI parser
@@ -21,6 +20,9 @@ func main() {
 		fmt.Fprintf(os.Stderr, "Error parsing arguments: %v\n", err)
 		os.Exit(1)
 	}
+
+	// Get version from pkg/version
+	Version := version.Number()
 
 	// Handle help
 	if args.Help {
