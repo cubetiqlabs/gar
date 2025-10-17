@@ -553,18 +553,15 @@ Tested on: AMD Ryzen 9 5900X, 32GB RAM, NVMe SSD
 
 ```
 gar/
+...
 ├── docs/                            # 📚 Comprehensive Documentation
-│   ├── INDEX.md                     # Documentation index & quick navigation
-│   ├── QUICK_START.md               # Getting started with Unix-style arguments
 │   ├── EXAMPLES.md                  # Real-world usage examples
 │   ├── IMPLEMENTATION.md            # Technical implementation details
 │   ├── TROUBLESHOOTING.md           # Problem solving & FAQ
-│   ├── BUG_FIXES.md                 # Version history & changes
-│   └── CONTRIBUTING.md              # Contribution guidelines
-├── main.go                          # Main application (single-file implementation)
 ├── go.mod                           # Go module definition
 ├── go.sum                           # Dependency checksums
 ├── README.md                        # This file - main project overview
+├── CONTRIBUTING.md                  # Contribution guidelines
 ├── LICENSE                          # MIT license
 ├── TODO.md                          # Project roadmap
 └── .gitignore                       # Git ignore rules
@@ -576,12 +573,10 @@ gar/
 
 | Document | Purpose |
 |----------|---------|
-| [QUICK_START.md](docs/QUICK_START.md) | Learn Unix-style commands (`gar -cvf ...`) |
 | [EXAMPLES.md](docs/EXAMPLES.md) | See real-world usage scenarios |
 | [IMPLEMENTATION.md](docs/IMPLEMENTATION.md) | Understand technical architecture |
 | [TROUBLESHOOTING.md](docs/TROUBLESHOOTING.md) | Solve common problems |
-| [BUG_FIXES.md](docs/BUG_FIXES.md) | View version history and changes |
-| [CONTRIBUTING.md](docs/CONTRIBUTING.md) | Contribute to the project |
+| [CONTRIBUTING.md](CONTRIBUTING.md) | Contribute to the project |
 
 ### Core Components
 
