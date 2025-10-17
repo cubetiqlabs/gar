@@ -1,4 +1,4 @@
-# GoArchive (gar)
+# GoArchive [gar](#gar)
 
 <div align="center">
 
