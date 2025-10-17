@@ -1068,7 +1068,7 @@ Include examples for new features:
 
 -   Read the [README](README.md) first
 -   Search existing issues
--   Check [GitHub Discussions](https://github.com/cubetiqlabs/gar.git/discussions)
+-   Check [GitHub Discussions](https://github.com/cubetiqlabs/gar/discussions)
 -   Ask specific, well-formed questions
 
 ### Recognition

@@ -2,7 +2,7 @@
 
 <div align="center">
 
-![GoArchive Logo](https://img.shields.io/badge/gar-v1.0.0-blue.svg)
+![GoArchive Logo](https://img.shields.io/badge/gar-v1.0.1-blue.svg)
 ![Go Version](https://img.shields.io/badge/Go-1.21+-00ADD8.svg)
 ![License](https://img.shields.io/badge/license-MIT-green.svg)
 ![Platform](https://img.shields.io/badge/platform-Windows%20%7C%20Linux%20%7C%20macOS-lightgrey.svg)
@@ -156,6 +156,27 @@ GOOS=linux GOARCH=arm64 go build -o gar-linux-arm64 main.go
 
 ## 🎯 Quick Start
 
+### Unix-Style (Recommended - Like `tar` Command)
+
+```bash
+# Compress a directory with verbose output
+gar -cvf archive.zip myfiles
+
+# Extract an archive with verbose output
+gar -xvf archive.zip
+
+# Extract to specific directory
+gar -xvf archive.zip extracted/
+
+# List archive contents
+gar -tvf archive.zip
+
+# Compress with TAR.GZ format
+gar -cvfz archive.tar.gz myfiles
+```
+
+### Traditional Flags
+
 ```bash
 # Compress a directory
 gar -action=compress -input=myfiles -output=archive.zip
@@ -175,11 +196,63 @@ gar -action=extract -input=secure.zip -password=mypassword -output=out/
 
 ---
 
-## 📚 Usage
+## � Documentation
+
+For comprehensive documentation, visit the **[docs/](docs/)** folder:
+
+| Document | Purpose |
+|----------|---------|
+| 📘 **[QUICK_START.md](docs/QUICK_START.md)** | Get started with Unix-style arguments |
+| 📗 **[EXAMPLES.md](docs/EXAMPLES.md)** | Real-world usage examples and scenarios |
+| 📙 **[IMPLEMENTATION.md](docs/IMPLEMENTATION.md)** | Technical architecture and details |
+| 📕 **[TROUBLESHOOTING.md](docs/TROUBLESHOOTING.md)** | Solve common problems |
+| 📔 **[BUG_FIXES.md](docs/BUG_FIXES.md)** | Version history and changes |
+| 📓 **[CONTRIBUTING.md](docs/CONTRIBUTING.md)** | Contribute to the project |
+| 📑 **[INDEX.md](docs/INDEX.md)** | Documentation index and navigation |
+
+**Quick Links:**
+- ✅ New to gar? Start with [QUICK_START.md](docs/QUICK_START.md)
+- 🔧 Need examples? See [EXAMPLES.md](docs/EXAMPLES.md)
+- 🚨 Having issues? Check [TROUBLESHOOTING.md](docs/TROUBLESHOOTING.md)
+- 💻 Want to contribute? Read [CONTRIBUTING.md](docs/CONTRIBUTING.md)
+
+---
+
+## �📚 Usage
+
+### Unix-Style Options
+
+The Unix-style syntax is inspired by `tar` and provides a quick, familiar way to use gar:
+
+```bash
+gar [OPTIONS] <archive-file> [input-path]
+
+Options:
+  -c              Compress (create archive)
+  -x              Extract archive
+  -t              Test/List archive contents
+  -v              Verbose output
+  -z              Force TAR.GZ format
+  -j              Force bzip2 format
+  -Z              Force 7-zip format
+```
 
 ### Compression
 
-#### Basic Compression
+#### Basic Compression (Unix-Style)
+
+```bash
+# Compress a directory with verbose
+gar -cvf documents.zip documents/
+
+# Compress and show progress
+gar -cvf archive.zip myfiles/
+
+# Compress a single file
+gar -cvf large-file.zip large-file.dat
+```
+
+#### Basic Compression (Traditional)
 
 ```bash
 # Compress a directory to ZIP
@@ -196,29 +269,48 @@ gar -action=compress -input=large-file.dat -output=large-file.zip
 
 ```bash
 # Fastest compression (lower compression ratio)
-gar -action=compress -input=data/ -output=data.zip -compression=fastest
+gar -cvf data.zip data/ -compression=fastest
 
 # Normal compression (balanced)
-gar -action=compress -input=data/ -output=data.zip -compression=normal
+gar -cvf data.zip data/ -compression=normal
 
 # Best compression (highest compression ratio, slower)
+gar -cvf data.zip data/ -compression=best
+
+# Or with traditional syntax
 gar -action=compress -input=data/ -output=data.zip -compression=best
 ```
 
 #### Password Protection
 
 ```bash
-# Compress with encryption
+# Unix-style: compress with encryption
+gar -cvf secure.zip sensitive/ -password="MyStr0ngP@ssw0rd"
+
+# Traditional: compress with encryption
 gar -action=compress -input=sensitive/ -output=secure.zip -password="MyStr0ngP@ssw0rd"
 
 # Using environment variable (more secure)
 export GAR_PASSWORD="MyStr0ngP@ssw0rd"
-gar -action=compress -input=sensitive/ -output=secure.zip -password="$GAR_PASSWORD"
+gar -cvf secure.zip sensitive/ -password="$GAR_PASSWORD"
 ```
 
 ### Extraction
 
-#### Basic Extraction
+#### Basic Extraction (Unix-Style)
+
+```bash
+# Extract to current directory
+gar -xvf archive.zip
+
+# Extract to specific directory
+gar -xvf archive.zip extracted/
+
+# Extract TAR.GZ
+gar -xvf archive.tar.gz output/
+```
+
+#### Basic Extraction (Traditional)
 
 ```bash
 # Extract to current directory
@@ -234,18 +326,42 @@ gar -action=extract -input=archive.tar.gz -output=output/
 #### Parallel Extraction
 
 ```bash
-# Use 8 worker threads (default: number of CPU cores)
-gar -action=extract -input=large-archive.zip -workers=8 -output=out/
+# Unix-style: use 8 worker threads
+gar -xvf large-archive.zip extracted/ -workers=8
 
-# Use all available cores (default behavior)
+# Traditional: use all available cores (default behavior)
 gar -action=extract -input=archive.zip -output=out/
+
+# Or specify thread count
+gar -action=extract -input=archive.zip -output=out/ -workers=4
 ```
 
 #### Extract Encrypted Archives
 
 ```bash
-# Extract with password
+# Unix-style: extract with password
+gar -xvf secure.zip extracted/ -password="MyStr0ngP@ssw0rd"
+
+# Traditional: extract with password
 gar -action=extract -input=secure.zip -password="MyStr0ngP@ssw0rd" -output=out/
+```
+
+### Listing Archive Contents
+
+#### List Archive (Unix-Style)
+
+```bash
+# Simple list
+gar -tvf archive.zip
+
+# Verbose list (same as above)
+gar -tvf archive.zip
+```
+
+#### List Archive (Traditional)
+
+```bash
+gar -action=list -input=archive.zip
 ```
 
 ### Listing Contents
@@ -437,22 +553,35 @@ Tested on: AMD Ryzen 9 5900X, 32GB RAM, NVMe SSD
 
 ```
 gar/
-├── main.go                 # Main application entry point
-├── go.mod                  # Go module definition
-├── go.sum                  # Dependency checksums
-├── README.md               # This file
-├── LICENSE                 # MIT license
-├── docs/                   # Additional documentation
-│   ├── API.md              # API documentation
-│   └── CONTRIBUTING.md     # Contribution guidelines
-├── examples/               # Usage examples
-│   └── scripts/            # Example scripts
-├── tests/                  # Test files
-│   ├── unit/               # Unit tests
-│   └── integration/        # Integration tests
-└── build/                  # Build artifacts
-    └── scripts/            # Build scripts
+├── docs/                            # 📚 Comprehensive Documentation
+│   ├── INDEX.md                     # Documentation index & quick navigation
+│   ├── QUICK_START.md               # Getting started with Unix-style arguments
+│   ├── EXAMPLES.md                  # Real-world usage examples
+│   ├── IMPLEMENTATION.md            # Technical implementation details
+│   ├── TROUBLESHOOTING.md           # Problem solving & FAQ
+│   ├── BUG_FIXES.md                 # Version history & changes
+│   └── CONTRIBUTING.md              # Contribution guidelines
+├── main.go                          # Main application (single-file implementation)
+├── go.mod                           # Go module definition
+├── go.sum                           # Dependency checksums
+├── README.md                        # This file - main project overview
+├── LICENSE                          # MIT license
+├── TODO.md                          # Project roadmap
+└── .gitignore                       # Git ignore rules
 ```
+
+### Documentation Organization
+
+📖 **Start here:** [docs/INDEX.md](docs/INDEX.md)
+
+| Document | Purpose |
+|----------|---------|
+| [QUICK_START.md](docs/QUICK_START.md) | Learn Unix-style commands (`gar -cvf ...`) |
+| [EXAMPLES.md](docs/EXAMPLES.md) | See real-world usage scenarios |
+| [IMPLEMENTATION.md](docs/IMPLEMENTATION.md) | Understand technical architecture |
+| [TROUBLESHOOTING.md](docs/TROUBLESHOOTING.md) | Solve common problems |
+| [BUG_FIXES.md](docs/BUG_FIXES.md) | View version history and changes |
+| [CONTRIBUTING.md](docs/CONTRIBUTING.md) | Contribute to the project |
 
 ### Core Components
 

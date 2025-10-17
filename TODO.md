@@ -1,5 +1,6 @@
 ## 💡 Next Steps to Enhance
 
+-   [x] **Quick args syntax**: Implement Unix-style flags like `gar -cvf` and `gar -xvf` (similar to tar)
 -   [ ] **Add more formats**: RAR (read-only), 7z, bzip2
 -   [ ] **Split archives**: Support for multi-volume archives
 -   [ ] **GUI version**: Create a cross-platform GUI using Fyne or Wails
@@ -11,3 +12,5 @@
 -   [ ] **Show the file stats**: Show the file stats (size for each file while adding) and the finished compressed file size
 -   [ ] **Show the file archived size**: Show the file archived size after finish compressed and compare with before the compress (stats the input path)
 -   [ ] **RAR format support**: Add WinRAR format support for compression.
+-   [ ] **Compress and send through SSH**: Allow to send the archive to remote through SSH and can extract it just seconds.
+-   [ ] **Checksum**: Allow use to checksum of file with MD5 or SHA256.
