@@ -1,4 +1,4 @@
-# GoArchive [gar](#gar)
+# GoArchive (gar)
 
 <div align="center">
 
@@ -723,7 +723,7 @@ SOFTWARE.
 
 <div align="center">
 
-**[⬆ Back to Top](#gar)**
+**[⬆ Back to Top](#overview)**
 
 Made with ❤️ by Sambo Chea
 
