@@ -68,7 +68,7 @@ func main() {
 	flag.Parse()
 
 	if *version {
-		fmt.Printf("gRAR v%s\n", Version)
+		fmt.Printf("GoArchive v%s\n", Version)
 		fmt.Printf("Platform: %s/%s\n", runtime.GOOS, runtime.GOARCH)
 		return
 	}
@@ -129,11 +129,11 @@ func main() {
 }
 
 func printUsage() {
-	fmt.Println("gRAR - High-Performance Cross-Platform Archive Manager")
+	fmt.Println("GoArchive (gar) - High-Performance Cross-Platform Archive Manager")
 	fmt.Println("\nUsage:")
-	fmt.Println("  grar -action=compress -input=<path> -output=<file> [options]")
-	fmt.Println("  grar -action=extract -input=<file> -output=<path> [options]")
-	fmt.Println("  grar -action=list -input=<file> [options]")
+	fmt.Println("  gar -action=compress -input=<path> -output=<file> [options]")
+	fmt.Println("  gar -action=extract -input=<file> -output=<path> [options]")
+	fmt.Println("  gar -action=list -input=<file> [options]")
 	fmt.Println("\nActions:")
 	fmt.Println("  compress, c    Compress files/directories")
 	fmt.Println("  extract, x     Extract archive")

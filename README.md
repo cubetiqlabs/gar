@@ -1,8 +1,8 @@
-# gRAR
+# GoArchive (gar)
 
 <div align="center">
 
-![gRAR Logo](https://img.shields.io/badge/gRAR-v1.0.0-blue.svg)
+![GoArchive Logo](https://img.shields.io/badge/gar-v1.0.0-blue.svg)
 ![Go Version](https://img.shields.io/badge/Go-1.21+-00ADD8.svg)
 ![License](https://img.shields.io/badge/license-MIT-green.svg)
 ![Platform](https://img.shields.io/badge/platform-Windows%20%7C%20Linux%20%7C%20macOS-lightgrey.svg)
@@ -43,9 +43,9 @@
 
 ## Overview
 
-gRAR is a modern alternative to WinRAR, designed with performance, security, and cross-platform compatibility in mind. Built entirely in Go, it leverages concurrent processing and industry-standard encryption to provide fast and secure archive management.
+GoArchive (gar) is a modern alternative to WinRAR, designed with performance, security, and cross-platform compatibility in mind. Built entirely in Go, it leverages concurrent processing and industry-standard encryption to provide fast and secure archive management.
 
-### Why gRAR?
+### Why GoArchive (gar)?
 
 -   **🚀 Fast**: Parallel processing utilizing all CPU cores
 -   **🔒 Secure**: AES-256-GCM encryption with PBKDF2 key derivation
@@ -96,12 +96,12 @@ Download the latest release for your platform:
 
 ```bash
 # Linux/macOS
-curl -LO https://github.com/cubetiqlabs/grar/releases/latest/download/grar-linux-amd64
-chmod +x grar-linux-amd64
-sudo mv grar-linux-amd64 /usr/local/bin/grar
+curl -LO https://github.com/cubetiqlabs/gar/releases/latest/download/gar-linux-amd64
+chmod +x gar-linux-amd64
+sudo mv gar-linux-amd64 /usr/local/bin/gar
 
 # Windows (PowerShell)
-Invoke-WebRequest -Uri "https://github.com/cubetiqlabs/grar/releases/latest/download/grar-windows-amd64.exe" -OutFile "grar.exe"
+Invoke-WebRequest -Uri "https://github.com/cubetiqlabs/gar/releases/latest/download/gar-windows-amd64.exe" -OutFile "gar.exe"
 ```
 
 ### Build from Source
@@ -115,20 +115,20 @@ Invoke-WebRequest -Uri "https://github.com/cubetiqlabs/grar/releases/latest/down
 
 ```bash
 # Clone the repository
-git clone https://github.com/cubetiqlabs/grar.git
-cd grar
+git clone https://github.com/cubetiqlabs/gar.git
+cd gar
 
 # Install dependencies
 go mod download
 
 # Build
-go build -o grar main.go
+go build -o gar main.go
 
 # Optional: Install globally
-sudo mv grar /usr/local/bin/
+sudo mv gar /usr/local/bin/
 
 # Verify installation
-grar -version
+gar -version
 ```
 
 ### Cross-compilation
@@ -137,19 +137,19 @@ Build for different platforms:
 
 ```bash
 # Windows (64-bit)
-GOOS=windows GOARCH=amd64 go build -o grar-windows-amd64.exe main.go
+GOOS=windows GOARCH=amd64 go build -o gar-windows-amd64.exe main.go
 
 # Linux (64-bit)
-GOOS=linux GOARCH=amd64 go build -o grar-linux-amd64 main.go
+GOOS=linux GOARCH=amd64 go build -o gar-linux-amd64 main.go
 
 # macOS (64-bit Intel)
-GOOS=darwin GOARCH=amd64 go build -o grar-darwin-amd64 main.go
+GOOS=darwin GOARCH=amd64 go build -o gar-darwin-amd64 main.go
 
 # macOS (ARM64 - Apple Silicon)
-GOOS=darwin GOARCH=arm64 go build -o grar-darwin-arm64 main.go
+GOOS=darwin GOARCH=arm64 go build -o gar-darwin-arm64 main.go
 
 # Linux ARM (Raspberry Pi)
-GOOS=linux GOARCH=arm64 go build -o grar-linux-arm64 main.go
+GOOS=linux GOARCH=arm64 go build -o gar-linux-arm64 main.go
 ```
 
 ---
@@ -158,19 +158,19 @@ GOOS=linux GOARCH=arm64 go build -o grar-linux-arm64 main.go
 
 ```bash
 # Compress a directory
-grar -action=compress -input=myfiles -output=archive.zip
+gar -action=compress -input=myfiles -output=archive.zip
 
 # Extract an archive
-grar -action=extract -input=archive.zip -output=extracted/
+gar -action=extract -input=archive.zip -output=extracted/
 
 # List contents
-grar -action=list -input=archive.zip
+gar -action=list -input=archive.zip
 
 # Compress with encryption
-grar -action=compress -input=myfiles -output=secure.zip -password=mypassword
+gar -action=compress -input=myfiles -output=secure.zip -password=mypassword
 
 # Extract with password
-grar -action=extract -input=secure.zip -password=mypassword -output=out/
+gar -action=extract -input=secure.zip -password=mypassword -output=out/
 ```
 
 ---
@@ -183,37 +183,37 @@ grar -action=extract -input=secure.zip -password=mypassword -output=out/
 
 ```bash
 # Compress a directory to ZIP
-grar -action=compress -input=documents/ -output=documents.zip
+gar -action=compress -input=documents/ -output=documents.zip
 
 # Compress to TAR.GZ
-grar -action=compress -input=documents/ -output=documents.tar.gz -format=tar.gz
+gar -action=compress -input=documents/ -output=documents.tar.gz -format=tar.gz
 
 # Compress a single file
-grar -action=compress -input=large-file.dat -output=large-file.zip
+gar -action=compress -input=large-file.dat -output=large-file.zip
 ```
 
 #### Compression Levels
 
 ```bash
 # Fastest compression (lower compression ratio)
-grar -action=compress -input=data/ -output=data.zip -compression=fastest
+gar -action=compress -input=data/ -output=data.zip -compression=fastest
 
 # Normal compression (balanced)
-grar -action=compress -input=data/ -output=data.zip -compression=normal
+gar -action=compress -input=data/ -output=data.zip -compression=normal
 
 # Best compression (highest compression ratio, slower)
-grar -action=compress -input=data/ -output=data.zip -compression=best
+gar -action=compress -input=data/ -output=data.zip -compression=best
 ```
 
 #### Password Protection
 
 ```bash
 # Compress with encryption
-grar -action=compress -input=sensitive/ -output=secure.zip -password="MyStr0ngP@ssw0rd"
+gar -action=compress -input=sensitive/ -output=secure.zip -password="MyStr0ngP@ssw0rd"
 
 # Using environment variable (more secure)
-export GRAR_PASSWORD="MyStr0ngP@ssw0rd"
-grar -action=compress -input=sensitive/ -output=secure.zip -password="$GRAR_PASSWORD"
+export GAR_PASSWORD="MyStr0ngP@ssw0rd"
+gar -action=compress -input=sensitive/ -output=secure.zip -password="$GAR_PASSWORD"
 ```
 
 ### Extraction
@@ -222,40 +222,40 @@ grar -action=compress -input=sensitive/ -output=secure.zip -password="$GRAR_PASS
 
 ```bash
 # Extract to current directory
-grar -action=extract -input=archive.zip
+gar -action=extract -input=archive.zip
 
 # Extract to specific directory
-grar -action=extract -input=archive.zip -output=extracted/
+gar -action=extract -input=archive.zip -output=extracted/
 
 # Extract TAR.GZ
-grar -action=extract -input=archive.tar.gz -output=output/
+gar -action=extract -input=archive.tar.gz -output=output/
 ```
 
 #### Parallel Extraction
 
 ```bash
 # Use 8 worker threads (default: number of CPU cores)
-grar -action=extract -input=large-archive.zip -workers=8 -output=out/
+gar -action=extract -input=large-archive.zip -workers=8 -output=out/
 
 # Use all available cores (default behavior)
-grar -action=extract -input=archive.zip -output=out/
+gar -action=extract -input=archive.zip -output=out/
 ```
 
 #### Extract Encrypted Archives
 
 ```bash
 # Extract with password
-grar -action=extract -input=secure.zip -password="MyStr0ngP@ssw0rd" -output=out/
+gar -action=extract -input=secure.zip -password="MyStr0ngP@ssw0rd" -output=out/
 ```
 
 ### Listing Contents
 
 ```bash
 # List all files in archive
-grar -action=list -input=archive.zip
+gar -action=list -input=archive.zip
 
 # List with verbose output
-grar -action=list -input=archive.zip -verbose
+gar -action=list -input=archive.zip -verbose
 ```
 
 ### Advanced Options
@@ -265,7 +265,7 @@ grar -action=list -input=archive.zip -verbose
 Get detailed output about operations:
 
 ```bash
-grar -action=compress -input=data/ -output=data.zip -verbose
+gar -action=compress -input=data/ -output=data.zip -verbose
 ```
 
 Output example:
@@ -284,10 +284,10 @@ Control parallelism for large archives:
 
 ```bash
 # Limit to 4 workers (useful on systems with limited RAM)
-grar -action=extract -input=huge.zip -workers=4
+gar -action=extract -input=huge.zip -workers=4
 
 # Use 16 workers for maximum speed (on powerful systems)
-grar -action=extract -input=archive.zip -workers=16
+gar -action=extract -input=archive.zip -workers=16
 ```
 
 ---
@@ -349,7 +349,7 @@ grar -action=extract -input=archive.zip -workers=16
 
 ### Encryption
 
-gRAR uses military-grade encryption to protect your data:
+GoArchive (gar) uses military-grade encryption to protect your data:
 
 -   **Algorithm**: AES-256 in GCM mode (Galois/Counter Mode)
 -   **Key Derivation**: PBKDF2 with SHA-256
@@ -368,14 +368,14 @@ gRAR uses military-grade encryption to protect your data:
 
 ```bash
 # ✅ DO: Use strong passwords
-grar -action=compress -input=data/ -password="Tr0ub4dor&3_Complex!"
+gar -action=compress -input=data/ -password="Tr0ub4dor&3_Complex!"
 
 # ❌ DON'T: Use weak passwords
-grar -action=compress -input=data/ -password="password123"
+gar -action=compress -input=data/ -password="password123"
 
 # ✅ DO: Use environment variables for passwords
 export ARCHIVE_PASS="your-strong-password"
-grar -action=compress -input=data/ -password="$ARCHIVE_PASS"
+gar -action=compress -input=data/ -password="$ARCHIVE_PASS"
 
 # ✅ DO: Clear password from history
 history -d $(history 1)
@@ -416,7 +416,7 @@ Tested on: AMD Ryzen 9 5900X, 32GB RAM, NVMe SSD
 
     ```bash
     # More workers = faster extraction (but more RAM)
-    grar -action=extract -input=large.zip -workers=16
+    gar -action=extract -input=large.zip -workers=16
     ```
 
 3. **Use SSD storage**: Significantly improves I/O performance
@@ -436,7 +436,7 @@ Tested on: AMD Ryzen 9 5900X, 32GB RAM, NVMe SSD
 ### Project Structure
 
 ```
-grar/
+gar/
 ├── main.go                 # Main application entry point
 ├── go.mod                  # Go module definition
 ├── go.sum                  # Dependency checksums
@@ -485,7 +485,7 @@ grar/
 
 ### Concurrency Model
 
-gRAR uses a **worker pool pattern** for parallel extraction:
+GoArchive (gar) uses a **worker pool pattern** for parallel extraction:
 
 ```
 Main Thread
@@ -516,8 +516,8 @@ This ensures:
 
 ```bash
 # Clone repository
-git clone https://github.com/cubetiqlabs/grar.git
-cd grar
+git clone https://github.com/cubetiqlabs/gar.git
+cd gar
 
 # Install dependencies
 go mod download
@@ -529,7 +529,7 @@ go test ./...
 go run -race main.go -action=list -input=test.zip
 
 # Build for development
-go build -o grar main.go
+go build -o gar main.go
 ```
 
 ### Running Tests
@@ -613,19 +613,19 @@ go vet ./...
 
 ### General Questions
 
-**Q: Is gRAR compatible with WinRAR/7-Zip archives?**  
-A: gRAR can extract ZIP archives created by WinRAR or 7-Zip. However, RAR format support is limited to extraction only (read-only) and is planned for future releases.
+**Q: Is GoArchive (gar) compatible with WinRAR/7-Zip archives?**  
+A: GoArchive (gar) can extract ZIP archives created by WinRAR or 7-Zip. However, RAR format support is limited to extraction only (read-only) and is planned for future releases.
 
-**Q: Can I use gRAR in my CI/CD pipeline?**  
-A: Yes! gRAR is perfect for automation. It returns proper exit codes and supports silent operation (without `-verbose` flag).
+**Q: Can I use GoArchive (gar) in my CI/CD pipeline?**  
+A: Yes! GoArchive (gar) is perfect for automation. It returns proper exit codes and supports silent operation (without `-verbose` flag).
 
-**Q: How does gRAR compare to other tools?**  
-A: gRAR focuses on speed, security, and ease of use. It's faster than many alternatives for parallel extraction and provides built-in encryption without external tools.
+**Q: How does GoArchive (gar) compare to other tools?**  
+A: GoArchive (gar) focuses on speed, security, and ease of use. It's faster than many alternatives for parallel extraction and provides built-in encryption without external tools.
 
 ### Security Questions
 
 **Q: How secure is the encryption?**  
-A: gRAR uses AES-256-GCM, which is used by governments and militaries worldwide. Combined with PBKDF2 key derivation, it provides excellent security against brute-force attacks.
+A: GoArchive (gar) uses AES-256-GCM, which is used by governments and militaries worldwide. Combined with PBKDF2 key derivation, it provides excellent security against brute-force attacks.
 
 **Q: Can I recover files if I forget the password?**  
 A: No. There is no password recovery mechanism. Without the correct password, encrypted archives cannot be decrypted.
@@ -641,8 +641,8 @@ A: Compression requires analyzing data to find patterns, which is CPU-intensive.
 **Q: How many workers should I use?**  
 A: The default (number of CPU cores) works well for most cases. Use fewer workers if you're limited by RAM, or more if you have a powerful system.
 
-**Q: Can gRAR handle very large files (100GB+)?**  
-A: Yes. gRAR uses streaming I/O and doesn't load entire files into memory. However, ensure you have enough disk space for temporary files.
+**Q: Can GoArchive (gar) handle very large files (100GB+)?**  
+A: Yes. GoArchive (gar) uses streaming I/O and doesn't load entire files into memory. However, ensure you have enough disk space for temporary files.
 
 ### Troubleshooting
 
@@ -682,7 +682,7 @@ We welcome contributions! Please see our [Contributing Guidelines](CONTRIBUTING.
 
 MIT License
 
-Copyright (c) 2025 gRAR Contributors
+Copyright (c) 2025 GoArchive (gar) Contributors
 
 Permission is hereby granted, free of charge, to any person obtaining a copy
 of this software and associated documentation files (the "Software"), to deal
@@ -714,17 +714,17 @@ SOFTWARE.
 
 ## 📞 Support
 
--   **Documentation**: [Wiki](https://github.com/cubetiqlabs/grar/wiki)
--   **Issues**: [GitHub Issues](https://github.com/cubetiqlabs/grar/issues)
--   **Discussions**: [GitHub Discussions](https://github.com/cubetiqlabs/grar/discussions)
--   **Email**: support@grar.dev
+-   **Documentation**: [Wiki](https://github.com/cubetiqlabs/gar/wiki)
+-   **Issues**: [GitHub Issues](https://github.com/cubetiqlabs/gar/issues)
+-   **Discussions**: [GitHub Discussions](https://github.com/cubetiqlabs/gar/discussions)
+-   **Email**: oss@cubetiqs.com
 
 ---
 
 <div align="center">
 
-**[⬆ Back to Top](#grar)**
+**[⬆ Back to Top](#gar)**
 
-Made with ❤️ by the gRAR Team
+Made with ❤️ by Sambo Chea
 
 </div>

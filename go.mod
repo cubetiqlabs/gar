@@ -1,4 +1,4 @@
-module github.com/cubetiqlabs/grar
+module github.com/cubetiqlabs/gar
 
 go 1.25.1
 
