@@ -440,18 +440,18 @@ gar/
 ├── main.go                 # Main application entry point
 ├── go.mod                  # Go module definition
 ├── go.sum                  # Dependency checksums
-├── README.md              # This file
-├── LICENSE                # MIT license
-├── docs/                  # Additional documentation
-│   ├── API.md            # API documentation
-│   └── CONTRIBUTING.md   # Contribution guidelines
-├── examples/             # Usage examples
-│   └── scripts/         # Example scripts
-├── tests/               # Test files
-│   ├── unit/           # Unit tests
-│   └── integration/    # Integration tests
-└── build/              # Build artifacts
-    └── scripts/        # Build scripts
+├── README.md               # This file
+├── LICENSE                 # MIT license
+├── docs/                   # Additional documentation
+│   ├── API.md              # API documentation
+│   └── CONTRIBUTING.md     # Contribution guidelines
+├── examples/               # Usage examples
+│   └── scripts/            # Example scripts
+├── tests/                  # Test files
+│   ├── unit/               # Unit tests
+│   └── integration/        # Integration tests
+└── build/                  # Build artifacts
+    └── scripts/            # Build scripts
 ```
 
 ### Core Components
