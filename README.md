@@ -202,19 +202,15 @@ For comprehensive documentation, visit the **[docs/](docs/)** folder:
 
 | Document | Purpose |
 |----------|---------|
-| 📘 **[QUICK_START.md](docs/QUICK_START.md)** | Get started with Unix-style arguments |
 | 📗 **[EXAMPLES.md](docs/EXAMPLES.md)** | Real-world usage examples and scenarios |
 | 📙 **[IMPLEMENTATION.md](docs/IMPLEMENTATION.md)** | Technical architecture and details |
 | 📕 **[TROUBLESHOOTING.md](docs/TROUBLESHOOTING.md)** | Solve common problems |
-| 📔 **[BUG_FIXES.md](docs/BUG_FIXES.md)** | Version history and changes |
-| 📓 **[CONTRIBUTING.md](docs/CONTRIBUTING.md)** | Contribute to the project |
-| 📑 **[INDEX.md](docs/INDEX.md)** | Documentation index and navigation |
+| 📓 **[CONTRIBUTING.md](CONTRIBUTING.md)** | Contribute to the project |
 
 **Quick Links:**
-- ✅ New to gar? Start with [QUICK_START.md](docs/QUICK_START.md)
 - 🔧 Need examples? See [EXAMPLES.md](docs/EXAMPLES.md)
 - 🚨 Having issues? Check [TROUBLESHOOTING.md](docs/TROUBLESHOOTING.md)
-- 💻 Want to contribute? Read [CONTRIBUTING.md](docs/CONTRIBUTING.md)
+- 💻 Want to contribute? Read [CONTRIBUTING.md](CONTRIBUTING.md)
 
 ---
 
